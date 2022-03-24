@@ -77,3 +77,10 @@ class CuentaBancaria():
         else:
             print("Error, quiere transferir más dinero del que tienes") #En caso de que la condición no se cumpla (y la cantidad de dinero que se intenta transferir es mayor al saldo del la cuenta), entonces 
             #La acción de transferir dinero es imposible y por lo tanto el programa se lo comunica al cliente imprimiendo un mensaje de error.
+
+        # Método cuenta:
+    #Si tenemos una cuenta bancaria es fundamental poder saber cuál es su saldo, para así hacer un control de los gastos y los ingresos
+    #por lo tanto a continuación definimos un método que nos permite comprobar el saldo de nuestra cuenta
+    def cuenta(self):
+        return "Cuenta bancaria: " + str(self.id) + " Saldo: " + str(self.saldo) # El método nues debvuelve AEl nombre del propietario de la cuenta y el valor del
+        #saldo de la misma
