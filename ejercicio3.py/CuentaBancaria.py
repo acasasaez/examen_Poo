@@ -84,3 +84,36 @@ class CuentaBancaria():
     def cuenta(self):
         return "Cuenta bancaria: " + str(self.id) + " Saldo: " + str(self.saldo) # El método nues debvuelve AEl nombre del propietario de la cuenta y el valor del
         #saldo de la misma
+
+#Por otro lado creamos funciones que necesitaremos a lo largo de nuestro ejericio:
+#Por un lado, necesitaremos un algoritmo que que calcule si nuestro año es bisisesto no (implementamos la función escribir fechas que habíamos creado)
+def esBisiesto(año): #Pasamos por parámetro el año
+    Bisiesto=False #Inicialmente nuestro algoritmo toma el valor de false
+    if(año%4==0): #En caso de que el año introducido sea un mçmúltiplo de cuatro comprobamos:
+        if(año%100==0):#Si el año introducido es múltiplo de 100
+            if(año%400==0):#para que nuestro año sea bissiesto necesitamos también quje cumpla la condición de ser múltiplo de cuatro
+    
+                Bisiesto=True #Bisiesto toma el valor True
+        else: #En caso de que nuestro número sea múltiplo de 4 pero no de 100 entonces también será bisiesto
+            Bisiesto=True #Bisiesto toma el valor True
+        #En otro caso año no cumple ninguna de las condiciones para ser bisiesto, por lo tanto Bisiesto mantiene su valor inicial False
+    return Bisiesto #Nos devuelve un Boolean que permite saber si nuestro año es bisisesto o no
+
+#Función escribirfecha:
+#Que dará la feche de apertura(fecha aleatoria)
+def escribirfecha():
+    año=random.randint(2021,2050) #Nuestra fecha toma un valor random para el año 2021 y el 2050
+    mes=random.randint(1,12) #Nuestra fecha toma un valor random para el mes, entre el 1 y el 12
+    día=0 #El día toma valor 0, es necesario calcularlo en funión del mes y del año en el que estemos
+    if(mes==2): # si mes toma valor 2 => Febrero
+        if(esBisiesto(año)==True): #Entonces si nuestro año es bisiesto, este mes implementa un día
+            #Así que debemos pasar por parámetro el año a la función esBisiesto para que compruebe si estamos en año bisiesto o no
+            día=random.randint(1,29) #Si el año es visiesto nuestro día tomará un valor aleatorio entre eçl 1 y el 29
+        else:
+            día=random.randint(1,28) #Si nuestro año no es bisiesto nuestro día tomará un valor random entre el 1 y el 28
+    elif(mes==4 or mes==6 or mes==9 or mes==11): #Por otro lado, si nuestro mes no toma el valor 2, pero toma alguno de los siguientes valores (abril, junio, septiembre o noviembre)
+        día=random.randint(1,30) #nuestro valor día solo puede tomar un número aleatorip entre el 1 y el 30, estos meses tienen un máximo de 30 días
+    else: # En caso de que nuestro mes no tome ninguno de los valores mencionados (2,4,6,9,11); es decir, nos encontramos en enero, marzo,mayo,julio,agosto, octubre o diciembre
+        día=random.randint(1,31) #Entonces nuestro día podrá tomar un valor entre 1 y 31, pues 31 es el máximo de días que contienen estos meses
+    fecha=[año,mes,día] #por último, creamos la variable fecha, que será una lista que tome como valores el año, el mes y el día de nuestra fecha
+    return fecha # Nuestra función nos devuelve el valor de dicha fecha.
