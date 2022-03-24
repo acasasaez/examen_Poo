@@ -1,5 +1,5 @@
 # examen_Poo:Enlace del repositorio 
-El examen consta de tres ejercicios: 
+El examen consta de tres ejercicios: https://github.com/acasasaez/examen_Poo.git
 
 En el primero describimos las relaciones entre las siguientes clases:
 
