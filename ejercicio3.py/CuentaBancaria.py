@@ -57,3 +57,23 @@ class CuentaBancaria():
     def ingresardinero(self, dinero): #parámetro: dinero = cantidad de dinero que se desea ingresar
         self.saldo=self.saldo+dinero #como ingresar dinero es una acción que siempre se pede realizar
         #sin ninguna condición, nuestro método simplemente necesita recalcular el valor del saldo una veza ingresada la cantidad de dinero indicada(pasada por parámetro)
+
+    #Método transferir dinero:
+#Nuestro nuevo método nos permite hacer transferencias (pasar dinero de una cuenta a otra)
+#pero debemos tener en cuenta que eesta es una acción renstringida y por lo tanto debemos tener en cuenta que nuestra cuenta debe cumplir ciertas condiciones
+#para poder hacer transferenciaspor lo tanto:
+    def transferirdinero(self,dinero,cuenta): 
+#Nuestra función juega con 3 elementos fundamentales:
+    #Uno de ellos es un atributo y es el saldo disponible de la cuenta
+    #Los otros dos debemos pasarlos por parámetros:
+        #Por un lado, para poder hacer una transferencia es necesario saber qué cantidad de dinero queremos transferir dinero
+        #Por otro lado necesitaremos otra instancia//objeto de nuestra clase CuentaBancaria a la que le haremos la transferencia.
+    #Ahora bien, para poder transferir dinero, es necesario que la cantidad de dinero a transferir sea menor, o como máximo igual, al saldo de nuestra cuenta, el caso contrario sería "imposible" (de momento).
+    #Por lo tanto nuestro método se encarga de realizar esta comparación:
+        if (self.saldo>=dinero):
+    #En caso de cumplirse la condición, entonces se realiza la transferencia, por lo tanto:
+            self.saldo=self.saldo-dinero #1) El método recalcula el saldo de nuestra cuenta (que habrá disminuido)
+            cuenta.saldo=cuenta.saldo+dinero #2) El método recalculará el saldo de la cuenta a la que realizamos la transferencia (que aumentará)
+        else:
+            print("Error, quiere transferir más dinero del que tienes") #En caso de que la condición no se cumpla (y la cantidad de dinero que se intenta transferir es mayor al saldo del la cuenta), entonces 
+            #La acción de transferir dinero es imposible y por lo tanto el programa se lo comunica al cliente imprimiendo un mensaje de error.
