@@ -52,3 +52,8 @@ class CuentaBancaria():
         else:
             print("Error, quiere retirar más dinero del que tienes") #3)En caso contrario(la cantidad de dinero que se intenta retirar es maayor al saldo) es necesario hacer saber al cliente que el saldo de la cuenta
             # no cuenta con el saldo suficiente, por lo tanto nuestro programa imprime un mensaje de error.
+
+    #Método ingresardinero:
+    def ingresardinero(self, dinero): #parámetro: dinero = cantidad de dinero que se desea ingresar
+        self.saldo=self.saldo+dinero #como ingresar dinero es una acción que siempre se pede realizar
+        #sin ninguna condición, nuestro método simplemente necesita recalcular el valor del saldo una veza ingresada la cantidad de dinero indicada(pasada por parámetro)
