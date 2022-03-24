@@ -122,3 +122,58 @@ def escribirfecha():
 #Con este método conseguiremos transformar nuestro parámetrofecha, inicialmente una lista, en un valor string.
 def fechatostring(fecha):
     return str(fecha[2])+"/"+str(fecha[1])+"/"+str(fecha[0])
+
+#Método compararfechas:
+#Este método nos permitirá comparar 2 fechas 
+#Para esto necesitaremos pasarle por parámetro las dos fechas que nos interesa comparar, donde las dos fechas serán 2 listas.
+def compararfechas(fecha1,fecha2):
+    fecha3=fechamenor(fecha1,fecha2) #Para eso buscamos una 3ª variable que tome el valor de la menor de las dos fechas 
+    #fechamenor es un método que definiremos más adelante
+    if(fecha1!=fecha3): #como fecha3 es el menor de las 2 fechas pasadas por parámetro, si fecha1 es distinto de fecha3 implica que flecha1 es mayor que flecha3
+        #para indicar esto nuestro progrma devuelve el 1 ( emplear esta notación nos será útil para definir nuevos métodos en herencias que crearemos posteriormente)
+        return 1
+    elif(fecha2!=fecha3): #si fecha3 distinto de fecha2, implica que fecha3=fecha1 y que fecha2 es mayor que fecha1
+        #nuestro porgrama indicará esto devolviendo un -1
+        return -1
+    else: #El único caso que nos queda por evaluar es que ambas fechas coincidan, en este caso nuestro fecha3 toma valor igual a fecha1 y fecha2
+        #nuestro programa nos indicará esto devolviéndonos un  valor 0.
+        return 0
+
+#Anteriormente hemos empleado una función "fechamenor" para poder comparar dos fechas: 
+#A continuación pasaremos a definir dicha función: ****En la lista a introducir el primer elemento será el año, el segundo el mes y el tercero el día
+#Bien, lo que queremos es crear una función que nos permita elegir cuál es la menor de sus listas a partir de ir comparando sus componentes una a una.
+def fechamenor(fecha1,fecha2):#Para esto pasamos por parámetro las 2 fechas qyue queremos comparar
+    #que como ya habíam os dicho se pasarán en formato listas de 3 elementos
+    if(fecha1[0]>fecha2[0]): #A continuación nuestro programa comienza por coparar el primer elemento de ambas listas:
+        menor=fecha2
+        #Si el año de la primera fecha es anterior que el año de la segunda, entonces la primera fecha se convierte en la más antigua
+        #si el primer elemento de la primera lista (fecha1)  tiene un valor menor al primer elemento de nuestra segunda lista (lista2) entonces menor toma el valor de la lista 1ª
+    elif(fecha1[0]<fecha2[0]):
+        menor=fecha1
+        #Si el año de nuestra segunda fecha es anterior que el de la primera, entonces la segunda fecha es previa a la segunda
+        #Si el primer elemento de la segunda lista (fecha2) es menor que el primer elemento de la primera lista (fecha1), entonces menor toma el valor de la lista 2 
+    else: #En caso contrario, ambas fechas tienen lugar en el mismo año, este no nos permite determinar cuál es la menor, por lo tanto pasamos a comparar los meses 
+        if(fecha1[1]>fecha2[1]):
+            menor=fecha2
+            #Si el mes de la primera lista es anterior al de la segunda, entonces nuestra primera fecha es anterior a la segunda
+            #Si el segundo valor de nuestra primera lista(fecha1) es menor que el de la segunda(fecha2), entonces menor será la primera lista
+        elif(fecha1[1]<fecha2[1]):
+            menor=fecha1
+            #Si el mes de la segunda fecha es anterior al de la primera, entonces la segunda fecha es previa a la primera
+            #Si el segundo valor de la segunda lista (fecha2) es ,menor al segundo valor de la primera lista (fecha1) , entonces menor toma como valor la segunda lista
+        else: #Si ambos años y ambos meses son iguales, ninguno de estos valores nos permiten determinar que fecha es menor
+            if(fecha1[2]>fecha2[2]):
+                menor=fecha2
+                #Si el día de la primera fecha es previo al día de la segunda, entonces la primera fecha es anterior
+                #Si el tercer elemento de nuestra primera lista (fecha1) es menor al de la segunda (fecha2), entonces menor toma el valor de la primera lista
+            elif(fecha1[2]<fecha2[2]):
+                menor=fecha1
+                #Si el día de la segunda fecha es previo al día de la primera, entonces la segunda fecha es anterior
+                #Si el tercer elemento de nuestra segunda lista (fecha2) es menor al de la primera (fecha1), entonces menor toma el valor de la segunda lista
+            else:
+                
+                menor=fecha2
+            #En caso contrario, como a esta condición solo se recurre si el año y mes de ambas fechas son iguales, entonces las 2 fechas serán iguales, y por lo tanyo,
+            #ninguna es menor
+            #Si los tres elementos de ambas listas son iguales, entoces menor toma el valor de la primera lista, que es igual al valolr de la segunda
+    return menor #Por último, tras haber sido comparadas elemento por elemento las 2 fechas obtenemos como resultado cuál es la menor de las listas  
