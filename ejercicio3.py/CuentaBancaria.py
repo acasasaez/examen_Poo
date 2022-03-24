@@ -73,7 +73,7 @@ class CuentaBancaria():
         if (self.saldo>=dinero):
     #En caso de cumplirse la condición, entonces se realiza la transferencia, por lo tanto:
             self.saldo=self.saldo-dinero #1) El método recalcula el saldo de nuestra cuenta (que habrá disminuido)
-            cuenta.saldo=cuenta.saldo+dinero #2) El método recalculará el saldo de la cuenta a la que realizamos la transferencia (que aumentará)
+            cuenta.saldo=cuenta.ingresardinero(dinero) #2) El método recalculará el saldo de la cuenta a la que realizamos la transferencia (que aumentará)
         else:
             print("Error, quiere transferir más dinero del que tienes") #En caso de que la condición no se cumpla (y la cantidad de dinero que se intenta transferir es mayor al saldo del la cuenta), entonces 
             #La acción de transferir dinero es imposible y por lo tanto el programa se lo comunica al cliente imprimiendo un mensaje de error.
