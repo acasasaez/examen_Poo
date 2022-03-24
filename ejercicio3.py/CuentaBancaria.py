@@ -177,3 +177,11 @@ def fechamenor(fecha1,fecha2):#Para esto pasamos por parámetro las 2 fechas qyu
             #ninguna es menor
             #Si los tres elementos de ambas listas son iguales, entoces menor toma el valor de la primera lista, que es igual al valolr de la segunda
     return menor #Por último, tras haber sido comparadas elemento por elemento las 2 fechas obtenemos como resultado cuál es la menor de las listas  
+
+
+def crearnumero():
+    numero=0#Inicialemnte nuestro número de cuenta será 0
+    for i in range(0,13): #Creamos un bucle que donde i toma los valores del 0 al 13
+        num=random.randint(0,9) #cada vez que se recorra el bucle num toma un número al azar del 0 al 9
+        numero+=num*10^i 
+    return numero #nos devuelve el valor de número
