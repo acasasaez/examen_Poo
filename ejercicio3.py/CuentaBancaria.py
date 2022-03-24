@@ -41,3 +41,14 @@ class CuentaBancaria():
 
     def getsaldo(self):
         return self.saldo
+    
+    #Método retirar dinero
+    def retirardinero(self,dinero): #Parámetros: dinero = cantidad de dinero en la cuenta bancaria
+#Para poder poder retirar x cantidad de dinero necesitamos un método que:
+        if (self.saldo>=dinero): #1)Compare si la cantidad de dinero actual en la cuenta, es decir el saldo de la cuenta, sostiene la cantidad de dinero que se quiere retirar
+            #en otras palabras, nuestro método debe asegurarse de que la cantidad de dinero que se desea retirar es menor, o como máxmo igual, al saldo de nuestra cuenta. 
+            self.saldo=self.saldo-dinero #2) Si la cantidad de dinero que se intenta retirar es menor o igual al saldo, entonces la acción es posible
+            #por lo tanto nuestro método recalcula el valor del saldo una vez retirado el dinero.
+        else:
+            print("Error, quiere retirar más dinero del que tienes") #3)En caso contrario(la cantidad de dinero que se intenta retirar es maayor al saldo) es necesario hacer saber al cliente que el saldo de la cuenta
+            # no cuenta con el saldo suficiente, por lo tanto nuestro programa imprime un mensaje de error.
