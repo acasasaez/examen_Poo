@@ -117,3 +117,8 @@ def escribirfecha():
         día=random.randint(1,31) #Entonces nuestro día podrá tomar un valor entre 1 y 31, pues 31 es el máximo de días que contienen estos meses
     fecha=[año,mes,día] #por último, creamos la variable fecha, que será una lista que tome como valores el año, el mes y el día de nuestra fecha
     return fecha # Nuestra función nos devuelve el valor de dicha fecha.
+
+#Función fechatostring:
+#Con este método conseguiremos transformar nuestro parámetrofecha, inicialmente una lista, en un valor string.
+def fechatostring(fecha):
+    return str(fecha[2])+"/"+str(fecha[1])+"/"+str(fecha[0])
